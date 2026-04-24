@@ -1,0 +1,183 @@
+ 29)  Un censador recopila ciertos datos aplicando encuestas para el último Censo Nacional de Población y Vivienda. Desea obtener de todas las personas que alcance a encuestar en un día, que porcentaje tiene estudios de primaria, secundaria, carrera técnica, estudios profesionales y estudios de posgrado
+
+primaria = 0
+secundaria = 0
+tecnica = 0
+profesional = 0
+posgrado = 0
+
+
+n = int(input("Ingrese la cantidad de personas encuestadas (0 para salir): "))
+
+
+if n == 0:
+    print("Programa finalizado.")
+else:
+    while n < 0:
+        print("Error: no se permiten números negativos")
+        n = int(input("Ingrese la cantidad de personas (0 para salir): "))
+
+    persona = 1
+
+    while persona <= n:
+        print("\nPersona", persona)
+        print("Nivel de estudios:")
+        print("1. Primaria")
+        print("2. Secundaria")
+        print("3. Carrera técnica")
+        print("4. Profesional")
+        print("5. Posgrado")
+        
+        opcion = int(input("Seleccione una opción (1-5): "))
+        
+        while opcion < 1 or opcion > 5:
+            print("Error: opción inválida")
+            opcion = int(input("Seleccione una opción válida (1-5): "))
+        
+        if opcion == 1:
+            primaria =primaria+ 1
+        elif opcion == 2:
+            secundaria =secundaria+ 1
+        elif opcion == 3:
+            tecnica = tecnica+ 1
+        elif opcion == 4:
+            profesional = profesional+ 1
+        elif opcion == 5:
+            posgrado =posgrado+ 1
+
+        persona += 1
+
+    print("\n--- RESULTADOS ---")
+    print("Primaria: ", (primaria / n) * 100, "%")
+    print("Secundaria: ", (secundaria / n) * 100, "%")
+    print("Carrera técnica: ", (tecnica / n) * 100, "%")
+    print("Profesional: ", (profesional / n) * 100, "%")
+    print("Posgrado: ", (posgrado / n) * 100, "%")
+
+30)  Un jefe de casilla desea determinar cuantas personas de cada una de las secciones que componen su zona asisten el día de las votaciones. Las secciones son: norte, sur y centro. También desea determinar cual es la sección con mayor número de votantes. 
+
+norte = 0
+sur = 0
+centro = 0
+
+n = int(input("Ingrese la cantidad de votantes (0 para salir): "))
+
+if n == 0:
+    print("Programa finalizado.")
+else:
+    while n < 0:
+        print("Error: no se permiten números negativos")
+        n = int(input("Ingrese la cantidad de votantes: "))
+
+    persona = 1
+
+    while persona <= n:
+        print("\nPersona", persona)
+        print("Sección:")
+        print("1. Norte")
+        print("2. Sur")
+        print("3. Centro")
+        
+        opcion = int(input("Seleccione una opción (1-3): "))
+        
+        while opcion < 1 or opcion > 3:
+            print("Error: opción inválida")
+            opcion = int(input("Seleccione una opción válida (1-3): "))
+        
+        if opcion == 1:
+            norte = norte+ 1
+        elif opcion == 2:
+            sur = sur+ 1
+        elif opcion == 3:
+            centro = centro+ 1
+
+        persona += 1
+
+    print("\n--- RESULTADOS ---")
+    print("Norte:", norte)
+    print("Sur:", sur)
+    print("Centro:", centro)
+
+    
+    if norte > sur and norte > centro:
+        print("La sección con más votantes es: Norte")
+    elif sur > norte and sur > centro:
+        print("La sección con más votantes es: Sur")
+    elif centro > norte and centro > sur:
+        print("La sección con más votantes es: Centro")
+    else:
+        print("Hay empate entre secciones")
+
+ 31)  Un negocio de copias tiene un limite de producción diaria de 10 000 copias si el tipo de impresión es offset y de 50 000 si el tipo es estándar. Si hay una solicitud de un el empleado tiene que verificar que las copias pendientes hasta el momento y las copias solicitadas no excedan del limite de producción. Si el limite de producción se excediera el trabajo solicitado no podría ser aceptado. El empleado necesita llevar un buen control de las copias solicitadas hasta el momento para decidir en forma rápida si los trabajos que se soliciten en el día se deben aceptar o no. 
+
+offset = 0
+estandar = 0
+
+opcion = 1
+
+while opcion != 3:
+    print("1 Offset")
+    print("2 Estandar")
+    print("3 Salir")
+
+    opcion = int(input("Seleccione: "))
+
+    if opcion == 1:
+        copias = int(input("Ingrese copias: "))
+
+        if offset + copias <= 10000:
+            offset = offset + copias
+            print("Aceptado Offset")
+        else:
+            print("Rechazado Offset")
+
+    else:
+        if opcion == 2:
+            copias = int(input("Ingrese copias: "))
+
+            if estandar + copias <= 50000:
+                estandar = estandar + copias
+                print("Aceptado Estandar")
+            else:
+                print("Rechazado Estandar")
+
+        else:
+            if opcion != 3:
+                print("Opcion incorrecta")
+
+print("Resultado final")
+
+if offset > 0:
+    print("Total Offset:", offset)
+
+if estandar > 0:
+    print("Total Estandar:", estandar)
+
+32)  Calcular la suma siguiente:  100 + 98 + 96 + 94 + . . . + 0 en este orden 
+
+suma = 0
+numero = 100
+
+while numero >= 0:
+    suma = suma + numero
+    numero = numero - 2
+
+print("La suma es:", suma)
+
+33)  Leer 50 calificaciones de un grupo de alumnos. Calcule y escriba el porcentaje de reprobados. Tomando en cuenta que la calificación mínima aprobatoria es de 70. 
+
+reprobados = 0
+contador = 1
+
+while contador <= 50:
+    nota = int(input("Ingrese calificacion: "))
+
+    if nota < 70:
+        reprobados = reprobados + 1
+
+    contador = contador + 1
+
+porcentaje = (reprobados * 100) / 50
+
+print("Porcentaje de reprobados:", porcentaje, "%")
+
