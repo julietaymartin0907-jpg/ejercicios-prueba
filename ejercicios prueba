@@ -181,3 +181,111 @@ porcentaje = (reprobados * 100) / 50
 
 print("Porcentaje de reprobados:", porcentaje, "%")
 
+#ejercicio 34
+cantidad_alumnos = int(input("Ingrese la cantidad de alumnos: "))
+
+contador = 1
+
+mayor_promedio = 0
+mejor_control = 0
+
+while contador <= cantidad_alumnos:
+    print("Alumno número:", contador)
+
+    numero_control = int(input("Ingrese número de control: "))
+
+    suma_notas = 0
+    unidad = 1
+
+    while unidad <= 5:
+        nota = float(input("Ingrese nota de la unidad: "))
+        suma_notas = suma_notas + nota
+        unidad = unidad + 1
+
+    promedio = suma_notas / 5
+
+    if contador == 1:
+        mayor_promedio = promedio
+        mejor_control = numero_control
+    else:
+        if promedio > mayor_promedio:
+            mayor_promedio = promedio
+            mejor_control = numero_control
+
+    contador = contador + 1
+
+print("El alumno con mayor promedio es:", mejor_control)
+print("Con promedio:", mayor_promedio)
+
+#ejercicio 35
+contador_alumnos = 1
+
+sin_examen = 0
+
+while contador_alumnos <= 40:
+    print("Alumno número:", contador_alumnos)
+
+    suma_notas = 0
+    unidad = 1
+
+    while unidad <= 5:
+        nota = float(input("Ingrese nota de la unidad: "))
+        suma_notas = suma_notas + nota
+        unidad = unidad + 1
+
+    promedio = suma_notas / 5
+
+    if promedio >= 6:
+        sin_examen = sin_examen + 1
+
+    contador_alumnos = contador_alumnos + 1
+
+print("Cantidad de alumnos que no tienen derecho al examen:", sin_examen)
+
+#ejercicio 36
+contador = 1
+
+votos1 = 0
+votos2 = 0
+votos3 = 0
+
+while contador <= 250000:
+    voto = int(input("Ingrese voto (1, 2 o 3): "))
+
+    if voto == 1:
+        votos1 = votos1 + 1
+    else:
+        if voto == 2:
+            votos2 = votos2 + 1
+        else:
+            if voto == 3:
+                votos3 = votos3 + 1
+            else:
+                print("Voto no válido")
+
+    contador = contador + 1
+
+# determinar ganador
+if votos1 > votos2 and votos1 > votos3:
+    print("Gana candidato 1 con votos:", votos1)
+else:
+    if votos2 > votos1 and votos2 > votos3:
+        print("Gana candidato 2 con votos:", votos2)
+    else:
+        print("Gana candidato 3 con votos:", votos3)
+
+#ejercicio37
+total_ventas = 0
+cantidad_clientes = 0
+
+monto = float(input("Ingrese el monto de la compra (0 para terminar): "))
+
+while monto != 0:
+    total_ventas = total_ventas + monto
+    cantidad_clientes = cantidad_clientes + 1
+
+    monto = float(input("Ingrese el monto de la compra (0 para terminar): "))
+
+print("Total de ventas:", total_ventas)
+print("Cantidad de clientes atendidos:", cantidad_clientes)
+
